@@ -21,6 +21,9 @@ app.use(validationManager.provideDefaultValidator());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// cors middleware
+app.use(cors());
+
 // api routes
 app.get('/', (req, res) => {
     res.send('ExpressJS Essentials Web API');
