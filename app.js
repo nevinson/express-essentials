@@ -17,6 +17,10 @@ const app = express();
 // validation middleware
 app.use(validationManager.provideDefaultValidator());
 
+// json formatter middleware
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 // api routes
 app.get('/', (req, res) => {
     res.send('ExpressJS Essentials Web API');
