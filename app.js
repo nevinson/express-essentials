@@ -1,3 +1,7 @@
+global.APP_ROOT_PATH = __dirname + '/app/';
+require('./config/global-paths');
+global.config = require('./config');
+
 const express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
