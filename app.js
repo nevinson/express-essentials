@@ -14,6 +14,10 @@ const express = require('express'),
 
 const app = express();
 
+// validation middleware
+app.use(validationManager.provideDefaultValidator());
+
+// api routes
 app.get('/', (req, res) => {
     res.send('ExpressJS Essentials Web API');
 });
