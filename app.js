@@ -12,6 +12,9 @@ const express = require('express'),
     mongoose = require('mongoose'),
     path = require('path');
 
+const ValidationManager = require('./app/manager/validation.manager'),
+    validationManager = new ValidationManager();
+
 const app = express();
 
 // validation middleware
