@@ -17,6 +17,20 @@ const ValidationManager = require('./app/manager/validation.manager'),
 
 const app = express();
 
+// connect to db
+mongoose.Promise = global.Promise;
+mongoose.connect(config.db.MONGO_CONNECT_URL);
+
+// On Connection
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database ' + config.db.MONGO_CONNECT_URL);
+});
+
+// On Error
+mongoose.connection.on('error', (err) => {
+    console.log('Database error: ' + err);
+});
+
 // validation middleware
 app.use(validationManager.provideDefaultValidator());
 
