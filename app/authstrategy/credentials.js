@@ -1,5 +1,5 @@
 const LocalAuthStrategy = require('passport-local').Strategy,
-    UserModel = require('../model/user.model').UserModel,
+    UserModel = require('../models/user.model').UserModel,
     UnauthorizedError = require('../error/unauthorized'),
     NotFoundError = require('../error/not-found');
 

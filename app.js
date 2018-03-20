@@ -14,6 +14,7 @@ const express = require('express'),
     path = require('path');
 
 const ValidationManager = require('./app/manager/validation.manager'),
+    authManager = require('./app/manager/auth.manager'),
     validationManager = new ValidationManager();
 
 const app = express();
@@ -34,6 +35,9 @@ mongoose.connection.on('error', (err) => {
 
 // validation middleware
 app.use(validationManager.provideDefaultValidator());
+
+//
+app.use(authManager.providePassport().initialize());
 
 // json formatter middleware
 app.use(bodyParser.json());
